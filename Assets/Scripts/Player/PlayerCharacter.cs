@@ -4,35 +4,45 @@ using UnityEngine.InputSystem;
 public class PlayerCharacter : BasicCharacter
 {
     [SerializeField]
-    private InputActionAsset _inputAsset;
+    private InputActionAsset _InputAsset;
 
     [SerializeField]
-    private InputActionReference _movementAction;
+    private InputActionReference _MovementAction;
 
-    private InputAction _interactAction;
+    private InputAction _InteractAction;
+
+    [SerializeField]
+    private int _AmountOfCrystals;
+
+    public delegate void CrystalChanged(int crystal);
+
+    public event CrystalChanged OnCrystalChange;
+
+    protected InteractBehavior _InteractBehavior;
 
     protected override void Awake()
     {
+        _InteractBehavior = GetComponent<InteractBehavior>();
         base.Awake();
 
-        if (_inputAsset == null) return;
+        if (_InputAsset == null) return;
 
         //example of searching for the bindings in code
-        _interactAction = _inputAsset.FindActionMap("Gameplay").FindAction("Interact");
+        _InteractAction = _InputAsset.FindActionMap("Gameplay").FindAction("Interact");
     }
 
     private void OnEnable()
     {
-        if(_inputAsset == null) return;
+        if(_InputAsset == null) return;
 
-        _inputAsset.Enable();
+        _InputAsset.Enable();
     }
 
     private void OnDisable()
     {
-        if (_inputAsset == null) return;
+        if (_InputAsset == null) return;
 
-        _inputAsset.Disable();
+        _InputAsset.Disable();
     }
 
     private void Update()
@@ -43,25 +53,44 @@ public class PlayerCharacter : BasicCharacter
 
     void HandleMovementInput()
     {
-        if (_movementBehavior == null ||
-           _movementAction == null)
+        if (_MovementBehavior == null ||
+           _MovementAction == null)
             return;
 
         //movement
-        float movementInput = _movementAction.action.ReadValue<float>();
+        float movementInput = _MovementAction.action.ReadValue<float>();
 
         Vector3 movement = movementInput * Vector3.right;
 
-        _movementBehavior.DesiredMovementDirection = movement;
+        _MovementBehavior.DesiredMovementDirection = movement;
     }
 
     private void HandleInteractInput()
     {
-        if (_interactBehavior == null ||
-           _interactAction == null)
+        if (_InteractBehavior == null ||
+           _InteractAction == null)
             return;
 
-        if (_interactAction.IsPressed())
-            _interactBehavior.Interact();
+        if (_InteractAction.IsPressed())
+            _InteractBehavior.Interact();
+    }
+
+    public int Crystals { get { return _AmountOfCrystals; } }
+
+    public void AddCrystals(int amount)
+    {
+        _AmountOfCrystals += amount;
+        OnCrystalChange?.Invoke(_AmountOfCrystals);
+    }
+
+    public bool ConsumeCrystal(int cost)
+    {
+        if(_AmountOfCrystals >= cost)
+        {
+            _AmountOfCrystals -= cost;
+            OnCrystalChange?.Invoke(_AmountOfCrystals);
+            return true;
+        }
+        return false;
     }
 }

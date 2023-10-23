@@ -72,10 +72,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72db8d17583e79b4087c4102a4833b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inputAsset: {fileID: -944628639613478452, guid: 6cd06c4717951c14c8e140bf32f8d80b,
+  _InputAsset: {fileID: -944628639613478452, guid: 6cd06c4717951c14c8e140bf32f8d80b,
     type: 3}
-  _movementAction: {fileID: -242983194445282382, guid: 6cd06c4717951c14c8e140bf32f8d80b,
+  _MovementAction: {fileID: -242983194445282382, guid: 6cd06c4717951c14c8e140bf32f8d80b,
     type: 3}
+  _AmountOfMoney: 5
 --- !u!114 &-5687935256411957602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,7 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4fa2ae26fb4c7445b8e61b6586e49f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementSpeed: 10
+  _MovementSpeed: 10
 --- !u!114 &8362253363920414439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,6 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50e41f024c2695b468ebec062f5773cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _SqrInteractRange: 3
 --- !u!54 &-6878230031157211113
 Rigidbody:
   m_ObjectHideFlags: 0

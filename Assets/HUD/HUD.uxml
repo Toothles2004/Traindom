@@ -1,0 +1,4 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement style="flex-grow: 1; background-image: url(&apos;project://database/Assets/Images/Crystal.png?fileID=2800000&amp;guid=c308fe0f75b7ba947b58d07eefdb950d&amp;type=3#Crystal&apos;); width: 100%; height: 97%; align-self: flex-end; justify-content: space-around; flex-direction: row-reverse; -unity-background-scale-mode: stretch-to-fill; position: relative; top: 2%; left: 0; align-items: stretch; min-height: 10%; min-width: 10%; max-width: 12%; max-height: 15%; right: 0; bottom: 0;" />
+    <ui:Label tabindex="-1" text="100" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 100px; width: 88%; align-self: flex-end; justify-content: space-around; align-items: auto; left: -18%; top: -15%; right: 124%; bottom: 864%; max-width: 5%; max-height: 15%; min-width: 1%; min-height: 10%; height: 97%;" />
+</ui:UXML>

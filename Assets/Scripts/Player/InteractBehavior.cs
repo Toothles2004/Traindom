@@ -5,24 +5,25 @@ using UnityEngine;
 public class InteractBehavior : MonoBehaviour
 {
     [SerializeField]
-    private float _sqrInteractRange = 3;
+    private float _SqrInteractRange = 3;
 
-    private GameObject[] _gameObjects;
+    private GameObject[] _GameObjects;
     public void Awake()
     {
-        _gameObjects = GameObject.FindGameObjectsWithTag("Interactable");
+        _GameObjects = GameObject.FindGameObjectsWithTag("Interactable");
     }
 
     public void Interact()
     {
-        _gameObjects = GameObject.FindGameObjectsWithTag("Interactable");
+        AttackEnemies();
+        _GameObjects = GameObject.FindGameObjectsWithTag("Interactable");
 
         float closestInteractable = float.PositiveInfinity;
         int closestIndex = -1;
 
-        for (int i = 0; i < _gameObjects.Length; i++)
+        for (int i = 0; i < _GameObjects.Length; i++)
         {
-            float distance = (transform.position - _gameObjects[i].transform.position).sqrMagnitude;
+            float distance = (transform.position - _GameObjects[i].transform.position).sqrMagnitude;
             if(distance < closestInteractable)
             {
                 closestInteractable = distance;
@@ -32,11 +33,37 @@ public class InteractBehavior : MonoBehaviour
 
         if (closestIndex == -1) return;
 
-        Debug.Log(closestInteractable);
+        //Debug.Log(closestInteractable);
         
-        if(closestInteractable <= _sqrInteractRange)
+        if(closestInteractable <= _SqrInteractRange)
         {
-            _gameObjects[closestIndex].GetComponent<BasicInteractable>().Interact();
+            _GameObjects[closestIndex].GetComponent<BasicInteractable>().Interact();
+        }
+    }
+
+    public void AttackEnemies()
+    {
+        GameObject[] tempGameObjects = GameObject.FindGameObjectsWithTag("Enemy");
+        float closestInteractable = float.PositiveInfinity;
+        int closestIndex = -1;
+
+        for (int i = 0; i < tempGameObjects.Length; i++)
+        {
+            float distance = (transform.position - tempGameObjects[i].transform.position).sqrMagnitude;
+            if (distance < closestInteractable)
+            {
+                closestInteractable = distance;
+                closestIndex = i;
+            }
+        }
+
+        if (closestIndex == -1) return;
+
+        //Debug.Log(closestInteractable);
+
+        if (closestInteractable <= _SqrInteractRange)
+        {
+            tempGameObjects[closestIndex].GetComponent<Health>().Damage(10);
         }
     }
 }

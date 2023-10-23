@@ -5,21 +5,21 @@ using UnityEngine;
 public class MovementBehavior : MonoBehaviour
 {
     [SerializeField]
-    private float _movementSpeed = 1.0f;
+    private float _MovementSpeed = 1.0f;
 
-    private Rigidbody _rigidBody;
+    private Rigidbody _RigidBody;
 
-    private Vector3 _desiredMovementDirection = Vector3.zero;
+    private Vector3 _DesiredMovementDirection = Vector3.zero;
 
     public Vector3 DesiredMovementDirection
     {
-        get { return _desiredMovementDirection; }
-        set { _desiredMovementDirection = value; }
+        get { return _DesiredMovementDirection; }
+        set { _DesiredMovementDirection = value; }
     }
 
     private void Awake()
     {
-        _rigidBody = GetComponent<Rigidbody>();
+        _RigidBody = GetComponent<Rigidbody>();
     }
 
     private void Update()
@@ -29,12 +29,12 @@ public class MovementBehavior : MonoBehaviour
 
     private void HandleMovement()
     {
-        if (_rigidBody == null) return;
+        if (_RigidBody == null) return;
 
-        Vector3 movement = _desiredMovementDirection.normalized;
-        movement *= _movementSpeed;
+        Vector3 movement = _DesiredMovementDirection.normalized;
+        movement *= _MovementSpeed;
 
-        movement.y = _rigidBody.velocity.y;
-        _rigidBody.velocity = movement;
+        movement.y = _RigidBody.velocity.y;
+        _RigidBody.velocity = movement;
     }
 }
