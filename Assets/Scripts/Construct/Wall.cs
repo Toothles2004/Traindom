@@ -5,24 +5,23 @@ using UnityEngine;
 public class Wall : MonoBehaviour
 {
     private WallHealth _Health = null;
-    private Renderer _Renderer = null;
+
+    public bool _start = false;
+    
     // Start is called before the first frame update
     void Start()
     {
-        _Renderer = GetComponentInChildren<Renderer>();
         _Health = GetComponent<WallHealth>();
+        _Health.OnWallDestroy += DestroyWall;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!_Health.GetAlive())
-        {
-            _Renderer.enabled = false;
-        }
-        else
-        {
-            _Renderer.enabled = true;
-        }
+    }
+
+    void DestroyWall()
+    {
+        transform.position -= new Vector3(0, 3.1f, 0);
     }
 }
