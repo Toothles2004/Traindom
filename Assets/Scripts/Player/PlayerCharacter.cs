@@ -29,6 +29,7 @@ public class PlayerCharacter : BasicCharacter
 
         //example of searching for the bindings in code
         _InteractAction = _InputAsset.FindActionMap("Gameplay").FindAction("Interact");
+        OnCrystalChange?.Invoke(_AmountOfCrystals);
     }
 
     private void OnEnable()

@@ -87,7 +87,8 @@ PrefabInstance:
         type: 3}
       propertyPath: _SpawnObjectTemplate
       value: 
-      objectReference: {fileID: 7417366012075478942}
+      objectReference: {fileID: 2169964751598583941, guid: 1fd635d5c1726db4b899fcc7ac7f1a97,
+        type: 3}
     - target: {fileID: 2701849713553670738, guid: a5721354362e3ad4fbc981d280ca25fc,
         type: 3}
       propertyPath: m_Layer
@@ -106,12 +107,6 @@ PrefabInstance:
 --- !u!1 &740917693276854466 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2701849713553670738, guid: a5721354362e3ad4fbc981d280ca25fc,
-    type: 3}
-  m_PrefabInstance: {fileID: 3402083902209792656}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7417366012075478942 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5321396990668084494, guid: a5721354362e3ad4fbc981d280ca25fc,
     type: 3}
   m_PrefabInstance: {fileID: 3402083902209792656}
   m_PrefabAsset: {fileID: 0}

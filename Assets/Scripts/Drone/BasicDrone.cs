@@ -41,10 +41,11 @@ public class BasicDrone : MonoBehaviour
             _InteractTimer += Time.deltaTime;
         }
 
-        if(_TargetReached == false)
-        {
-            MoveToTarget();
-        }
+        MoveToTarget();
+        //if(_TargetReached == false)
+        //{
+        //    MoveToTarget();
+        //}
         //Debug.Log(_InteractTimer);
     }
 

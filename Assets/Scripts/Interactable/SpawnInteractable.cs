@@ -13,7 +13,7 @@ public class SpawnInteractable : BasicInteractable
     public override void Interact()
     {
         base.Interact();
-        if((_DoInteract == false) || (_Player.ConsumeCrystal(_Cost)))
+        if((_DoInteract == false) || (!_Player.ConsumeCrystal(_Cost)))
         {
             return;
         }
