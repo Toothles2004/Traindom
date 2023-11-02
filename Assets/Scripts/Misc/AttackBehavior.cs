@@ -11,7 +11,7 @@ public class AttackBehavior : MonoBehaviour
         set { TARGET_MASK = value; }
     }
 
-    protected const float _AttackRange = 100.0f;
+    protected const float _AttackRange = 5.0f;
 
     protected int _Damage = 1;
 
@@ -35,10 +35,14 @@ public class AttackBehavior : MonoBehaviour
         }
 
         RaycastHit hit; 
-        if(Physics.Raycast(transform.position + (Vector3.up / 2.0f), transform.right, out hit, _AttackRange, LayerMask.GetMask("EndLevelObject")))
+        if(Physics.Raycast(transform.position + (Vector3.up / 2.0f), -transform.right, out hit, _AttackRange, LayerMask.GetMask("Destroyable")))
         {
             hit.collider.GetComponent<Health>().Damage(_Damage);
         }
-        Debug.DrawRay(transform.position + (Vector3.up / 2.0f), transform.right * _AttackRange,Color.red,1.0f);
+        if (Physics.Raycast(transform.position + (Vector3.up / 2.0f), transform.forward, out hit, _AttackRange, LayerMask.GetMask("Wall")))
+        {
+            hit.collider.GetComponent<Health>().Damage(_Damage);
+        }
+        Debug.DrawRay(transform.position + (Vector3.up / 2.0f), transform.forward * _AttackRange,Color.red,1.0f);
     }
 }
