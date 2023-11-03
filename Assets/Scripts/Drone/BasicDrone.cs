@@ -28,6 +28,8 @@ public class BasicDrone : MonoBehaviour
 
     protected GameObject[] _GameObjects;
 
+    protected float _Distance = 0;
+
     private void Awake()
     {
         _RigidBody = GetComponent<Rigidbody>();
@@ -41,12 +43,10 @@ public class BasicDrone : MonoBehaviour
             _InteractTimer += Time.deltaTime;
         }
 
-        MoveToTarget();
-        //if(_TargetReached == false)
-        //{
-        //    MoveToTarget();
-        //}
-        //Debug.Log(_InteractTimer);
+        if(!_TargetReached)
+        {
+            MoveToTarget();
+        }
     }
 
     public virtual void MoveToTarget()
@@ -56,9 +56,9 @@ public class BasicDrone : MonoBehaviour
             if (_RigidBody == null) return;
 
             float speed = 0;
-            float distance = _Target.transform.position.x - _RigidBody.position.x;
+            _Distance = _Target.transform.position.x - _RigidBody.position.x;
 
-            if(distance < 0)
+            if(_Distance < 0)
             {
                 speed = _MovementSpeed * (-1);
             }
@@ -69,8 +69,6 @@ public class BasicDrone : MonoBehaviour
 
             Vector3 movement = new Vector3(speed, 0.0f, 0.0f);
             _RigidBody.velocity = movement;
-
-            CheckTargetReached(distance);
         }
     }
     public virtual void ChangeCooldown()
@@ -99,12 +97,14 @@ public class BasicDrone : MonoBehaviour
         _Target = _GameObjects[closestIndex];
     }
 
-    public void CheckTargetReached(float distance)
+    public bool CheckTargetReached()
     {
-        if ((distance > 0) && (distance <= _SqrInteractRange))
+        if ((_Distance > 0) && (_Distance <= _SqrInteractRange))
         {
             _TargetReached = true;
+            return true;
         }
+        return false;
     }
 }
 

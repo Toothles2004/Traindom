@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1361032566756762259}
   m_Layer: 11
   m_Name: Construct
-  m_TagString: Interactable
+  m_TagString: Construct
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90013128fcaa3e84194e8bad25f63578, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _MaxHealth: 5
+  _MaxHealth: 15
 --- !u!114 &-2399504016713011893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,6 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 812a5e021bd5c18408da5b3bf0144021, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _start: 0
 --- !u!65 &7649862738438563689
 BoxCollider:
   m_ObjectHideFlags: 0

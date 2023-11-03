@@ -10,7 +10,7 @@ public class EndLevelInteractable : BasicInteractable
     protected override void Start()
     {
         base.Start();
-        _Cost = 200;
+        _Cost = 100;
     }
 
     override public void Interact()

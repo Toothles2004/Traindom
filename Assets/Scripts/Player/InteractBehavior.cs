@@ -15,9 +15,6 @@ public class InteractBehavior : MonoBehaviour
 
     public void Interact()
     {
-        AttackEnemies();
-        _GameObjects = GameObject.FindGameObjectsWithTag("Interactable");
-
         float closestInteractable = float.PositiveInfinity;
         int closestIndex = -1;
 
@@ -38,32 +35,6 @@ public class InteractBehavior : MonoBehaviour
         if(closestInteractable <= _SqrInteractRange)
         {
             _GameObjects[closestIndex].GetComponent<BasicInteractable>().Interact();
-        }
-    }
-
-    public void AttackEnemies()
-    {
-        GameObject[] tempGameObjects = GameObject.FindGameObjectsWithTag("Enemy");
-        float closestInteractable = float.PositiveInfinity;
-        int closestIndex = -1;
-
-        for (int i = 0; i < tempGameObjects.Length; i++)
-        {
-            float distance = (transform.position - tempGameObjects[i].transform.position).sqrMagnitude;
-            if (distance < closestInteractable)
-            {
-                closestInteractable = distance;
-                closestIndex = i;
-            }
-        }
-
-        if (closestIndex == -1) return;
-
-        //Debug.Log(closestInteractable);
-
-        if (closestInteractable <= _SqrInteractRange)
-        {
-            tempGameObjects[closestIndex].GetComponent<Health>().Damage(10);
         }
     }
 }

@@ -7,7 +7,7 @@ public class FighterDrone : BasicDrone
     // Start is called before the first frame update
     void Start()
     {
-        //_GameObjects = ;
+        _GameObjects = GameObject.FindGameObjectsWithTag("Construct");
         GetClosestTarget();
     }
 

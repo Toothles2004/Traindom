@@ -6,12 +6,12 @@ using UnityEngine.UIElements;
 public class Health : MonoBehaviour
 {
     [SerializeField]
-    private int _MaxHealth = 15;
-    private int _CurrentHealth = 1;
+    protected int _MaxHealth = 15;
+    protected int _CurrentHealth = 1;
     private bool _Alive = true;
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         _CurrentHealth = _MaxHealth;
     }
@@ -28,6 +28,7 @@ public class Health : MonoBehaviour
         if( _CurrentHealth <= 0 )
         {
             _Alive = false;
+            _CurrentHealth = 0;
             Die();
         }
     }
@@ -41,8 +42,8 @@ public class Health : MonoBehaviour
     {
         return _Alive;
     }
-    public virtual void SetAlive()
+    public virtual void SetAlive(bool alive)
     {
-        _Alive = false; ;
+        _Alive = alive;
     }
 }
