@@ -16,7 +16,6 @@ public class BasicEnemy : BasicCharacter
         base.Awake();
         _AttackBehavior = GetComponent<AttackBehavior>();
         _Target = FindObjectOfType<EndLevelInteractable>().gameObject;
-        _AttackBehavior.TargetMask = _Target.layer;
     }
 
     private void Update()

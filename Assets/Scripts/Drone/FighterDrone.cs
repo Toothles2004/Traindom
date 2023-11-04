@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class FighterDrone : BasicDrone
 {
+    private ShootBehavior _ShootBehavior;
+    private GameObject _Enemy = null;
     // Start is called before the first frame update
     void Start()
     {
+        _ShootBehavior = GetComponent<ShootBehavior>();
         _GameObjects = GameObject.FindGameObjectsWithTag("Construct");
         GetClosestTarget();
     }

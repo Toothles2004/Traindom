@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6063228451279753389}
   - component: {fileID: 1239413422048178128}
   - component: {fileID: 4327635769669050841}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: Canon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 8804227042717247997}
   - component: {fileID: 8835642241526266208}
   - component: {fileID: 4401937166872856473}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: Leg (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 6089683368269261723}
   - component: {fileID: 8061398468113885695}
   - component: {fileID: 6285100188314879965}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: Leg (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -333,7 +333,7 @@ GameObject:
   - component: {fileID: 87176050854198415}
   - component: {fileID: 1857632180584630628}
   - component: {fileID: 7727248252481493812}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -437,7 +437,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6566951266745831075}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: canon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -471,7 +471,7 @@ GameObject:
   - component: {fileID: 3993312352566297163}
   - component: {fileID: 7977129506098942467}
   - component: {fileID: -5756533685520182801}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: FighterDrone
   m_TagString: Drone
   m_Icon: {fileID: 0}
@@ -520,7 +520,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 120
+  m_Constraints: 124
   m_CollisionDetection: 0
 --- !u!114 &-5756533685520182801
 MonoBehaviour:
@@ -546,7 +546,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 942038743023781996}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -585,7 +585,7 @@ GameObject:
   - component: {fileID: 491362994410688908}
   - component: {fileID: 8550948251250887867}
   - component: {fileID: 4302282742032151255}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: Leg (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -692,7 +692,7 @@ GameObject:
   - component: {fileID: 1164151854252506593}
   - component: {fileID: 6406302767785009985}
   - component: {fileID: 8235427239010798829}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -796,7 +796,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2958243755218948408}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
