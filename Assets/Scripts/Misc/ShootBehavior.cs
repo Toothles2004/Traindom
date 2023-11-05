@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class ShootBehavior : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    private GameObject _GunTemplate = null;
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField]
+    private GameObject _Socket = null;
+
+    private BasicWeapon _Weapon = null;
+    
+
+    private void Awake()
     {
-        
+        //spawn guns
+        if(_GunTemplate != null && _Socket != null)
+        {
+            var gunObject = Instantiate(_GunTemplate, _Socket.transform, true);
+            gunObject.transform.localPosition = Vector3.zero;
+            gunObject.transform.localRotation = Quaternion.identity;
+            _Weapon = gunObject.GetComponent<BasicWeapon>();
+        }
     }
 }

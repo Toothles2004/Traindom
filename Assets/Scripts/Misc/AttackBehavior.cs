@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AttackBehavior : MonoBehaviour
 {
-    public LayerMask _LayerMask = -1;
+    private LayerMask _LayerMask = -1;
 
     protected const float _AttackRange = 3.0f;
 
@@ -13,7 +13,7 @@ public class AttackBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _LayerMask = LayerMask.GetMask("Wall") | LayerMask.GetMask("EndLevel");
+        _LayerMask = LayerMask.GetMask("Wall") | LayerMask.GetMask("EndLevel") | LayerMask.GetMask("Drone");
     }
 
     // Update is called once per frame
@@ -26,10 +26,10 @@ public class AttackBehavior : MonoBehaviour
         //Using the OverlapBox to detect if there are any other colliders within this box area.
         //Using the GameObject's centre, half the size (as a radius) and rotation. This creates an invisible box around the GameObject.
         Collider[] hitColliders = Physics.OverlapBox(gameObject.transform.position, transform.localScale * 1.5f, Quaternion.identity, _LayerMask);
-        for (int index = 0; index < hitColliders.Length; index++)
+        for (int index = 0; index < hitColliders.Length; ++index)
         {
             //Output all of the collider names
-            Debug.Log("Hit : " + hitColliders[index].name + index);
+            //Debug.Log("Hit : " + hitColliders[index].name + index);
             Health targetHealth = hitColliders[index].GetComponent<Health>();
             if (targetHealth != null)
             {

@@ -18,13 +18,13 @@ public class InteractBehavior : MonoBehaviour
         float closestInteractable = float.PositiveInfinity;
         int closestIndex = -1;
 
-        for (int i = 0; i < _GameObjects.Length; i++)
+        for (int index = 0; index < _GameObjects.Length; ++index)
         {
-            float distance = (transform.position - _GameObjects[i].transform.position).sqrMagnitude;
+            float distance = (transform.position - _GameObjects[index].transform.position).sqrMagnitude;
             if(distance < closestInteractable)
             {
                 closestInteractable = distance;
-                closestIndex = i;
+                closestIndex = index;
             }
         }
 

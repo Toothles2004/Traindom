@@ -10,13 +10,13 @@ public class BuilderDrone : BasicDrone
     void Start()
     {
         _GameObjects = GameObject.FindGameObjectsWithTag("Construct");
-        GetClosestTarget();
-        if(_Target == null )
+        GetClosestPosTarget();
+        if(_TargetPos == null )
         {
             return;
         }
-        _TargetHealth = _Target.GetComponent<WallHealth>();
-        _Target.GetComponent<Wall>().AddDrone(this);
+        _TargetHealth = _TargetPos.GetComponent<WallHealth>();
+        _TargetPos.GetComponent<Wall>().AddDrone(this);
     }
 
     // Update is called once per frame

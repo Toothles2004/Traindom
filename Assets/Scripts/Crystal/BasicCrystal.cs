@@ -7,6 +7,8 @@ public class BasicCrystal : MonoBehaviour
     private bool _SlotsAvailable = true;
     private int _AmountOfSlots = 3;
     private int _CurrentSlotsUsed = 0;
+
+    [SerializeField]
     private float _MineTimer = 5.0f;
 
     private PlayerCharacter _Player = null;

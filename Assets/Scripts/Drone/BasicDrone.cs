@@ -20,7 +20,7 @@ public class BasicDrone : MonoBehaviour
     [SerializeField]
     protected float _SqrInteractRange = 3;
 
-    protected GameObject _Target = null;
+    protected GameObject _TargetPos = null;
     protected Rigidbody _RigidBody = null;
 
     [SerializeField]
@@ -51,12 +51,12 @@ public class BasicDrone : MonoBehaviour
 
     public virtual void MoveToTarget()
     {
-        if(_Target != null )
+        if(_TargetPos != null )
         {
             if (_RigidBody == null) return;
 
             float speed = 0;
-            _Distance = _Target.transform.position.x - _RigidBody.position.x;
+            _Distance = _TargetPos.transform.position.x - _RigidBody.position.x;
 
             if(_Distance < 0)
             {
@@ -76,25 +76,25 @@ public class BasicDrone : MonoBehaviour
 
     }
 
-    public virtual void GetClosestTarget()
+    public virtual void GetClosestPosTarget()
     {
         float closestInteractable = float.PositiveInfinity;
         int closestIndex = -1;
 
-        for (int i = 0; i < _GameObjects.Length; i++)
+        for (int index = 0; index < _GameObjects.Length; ++index)
         {
-            float distance = (_RigidBody.transform.position - _GameObjects[i].transform.position).sqrMagnitude;
+            float distance = (_RigidBody.transform.position - _GameObjects[index].transform.position).sqrMagnitude;
             if (distance < closestInteractable)
             {
                 closestInteractable = distance;
-                closestIndex = i;
+                closestIndex = index;
             }
         }
         if (closestIndex == -1) return;
 
         Debug.Log(closestInteractable);
 
-        _Target = _GameObjects[closestIndex];
+        _TargetPos = _GameObjects[closestIndex];
     }
 
     public bool CheckTargetReached()

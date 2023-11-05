@@ -8,7 +8,7 @@ public class MinerDrone : BasicDrone
     void Start()
     {
         _GameObjects = GameObject.FindGameObjectsWithTag("Crystal");
-        GetClosestTarget();
+        GetClosestPosTarget();
     }
 
     // Update is called once per frame
@@ -17,25 +17,25 @@ public class MinerDrone : BasicDrone
         base.Update();
     }
 
-    public override void GetClosestTarget()
+    public override void GetClosestPosTarget()
     {
         float closestInteractable = float.PositiveInfinity;
         int closestIndex = -1;
 
-        for (int i = 0; i < _GameObjects.Length; i++)
+        for (int index = 0; index < _GameObjects.Length; ++index)
         {
-            float distance = (_RigidBody.transform.position - _GameObjects[i].transform.position).sqrMagnitude;
-            if ((distance < closestInteractable) && (_GameObjects[i].GetComponent<BasicCrystal>().CheckIfSlotsAvailable()))
+            float distance = (_RigidBody.transform.position - _GameObjects[index].transform.position).sqrMagnitude;
+            if ((distance < closestInteractable) && (_GameObjects[index].GetComponent<BasicCrystal>().CheckIfSlotsAvailable()))
             {
                 closestInteractable = distance;
-                closestIndex = i;
+                closestIndex = index;
             }
         }
         if (closestIndex == -1) return;
 
         Debug.Log(closestInteractable);
 
-        _Target = _GameObjects[closestIndex];
+        _TargetPos = _GameObjects[closestIndex];
         _GameObjects[closestIndex].GetComponent<BasicCrystal>().UpdateSlotsUsed();
     }
 }
