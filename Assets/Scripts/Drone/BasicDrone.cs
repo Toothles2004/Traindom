@@ -17,8 +17,7 @@ public class BasicDrone : MonoBehaviour
     protected float _InteractTimer = 0.0f;
     protected bool _TargetReached = false;
 
-    [SerializeField]
-    protected float _SqrInteractRange = 3;
+    protected float _SqrInteractRange = 1;
 
     protected GameObject _TargetPos = null;
     protected Rigidbody _RigidBody = null;
@@ -46,6 +45,11 @@ public class BasicDrone : MonoBehaviour
         if(!_TargetReached)
         {
             MoveToTarget();
+            CheckTargetReached();
+        }
+        else
+        {
+            _RigidBody.velocity = Vector3.zero;
         }
     }
 

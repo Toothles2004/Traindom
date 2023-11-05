@@ -65,11 +65,7 @@ public class BasicWeapon : MonoBehaviour
         }
 
         //// Target lock on
-        //Vector3 dir = _Enemy.position - transform.position;
-        //Quaternion lookRotation = Quaternion.LookRotation(dir);
-        //Vector3 rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime).eulerAngles;
         transform.LookAt(_Enemy.position);
-        //transform.rotation = Quaternion.Euler(rotation.x, 0.0f, 0.0f);
     }
 
     private void FireProjectile()

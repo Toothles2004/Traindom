@@ -12,6 +12,7 @@ public class FighterDrone : BasicDrone
         _ShootBehavior = GetComponent<ShootBehavior>();
         _GameObjects = GameObject.FindGameObjectsWithTag("Construct");
         GetClosestPosTarget();
+        _TargetPos.GetComponent<Wall>().AddFighterDrone(this);
     }
 
     // Update is called once per frame

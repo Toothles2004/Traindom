@@ -11,7 +11,9 @@ public class Wall : MonoBehaviour
     private Vector3 OriginalPos = Vector3.zero;
 
     private List<BuilderDrone> _BuilderDrones = new List<BuilderDrone>();
-    private List<BuilderDrone> _AttachedDrones = new List<BuilderDrone>();
+    private List<BuilderDrone> _AttachedBuilderDrones = new List<BuilderDrone>();
+    private List<FighterDrone> _FighterDrones = new List<FighterDrone>();
+    private List<FighterDrone> _AttachedFighterDrones = new List<FighterDrone>();
 
     // Start is called before the first frame update
     void Start()
@@ -31,16 +33,35 @@ public class Wall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        for(int index = 0; index < _BuilderDrones.Count; ++index)
-        {
-            if (_BuilderDrones[index].CheckTargetReached())
-            {
-                AttachDrone(_BuilderDrones[index]);
-            }
-        }
         if (!_Health.GetAlive())
         {
-            
+            for (int index = 0; index < _AttachedBuilderDrones.Count; index++)
+            {
+                PlaceDrone(_AttachedBuilderDrones[index], index);
+            }
+            for (int index = 0; index < _AttachedFighterDrones.Count; index++)
+            {
+                PlaceDrone(_AttachedFighterDrones[index], index);
+            }
+        }
+        else
+        {
+            for (int index = 0; index < _BuilderDrones.Count; ++index)
+            {
+                if (_BuilderDrones[index].CheckTargetReached())
+                {
+                    AttachBuilderDrone(_BuilderDrones[index]);
+                    _BuilderDrones.RemoveAt(index);
+                }
+            }
+            for (int index = 0; index < _FighterDrones.Count; ++index)
+            {
+                if (_FighterDrones[index].CheckTargetReached())
+                {
+                    AttachFighterDrone(_FighterDrones[index]);
+                    _FighterDrones.RemoveAt(index);
+                }
+            }
         }
     }
 
@@ -52,15 +73,35 @@ public class Wall : MonoBehaviour
     private void BuildWall()
     {
         transform.position = OriginalPos;
+        _Health.SetAlive(true);
     }
 
-    public void AddDrone(BuilderDrone drone)
+    public void AddBuilderDrone(BuilderDrone drone)
     {
         _BuilderDrones.Add(drone);
     }
-
-    private void AttachDrone(BuilderDrone drone)
+    
+    public void AddFighterDrone(FighterDrone drone)
     {
-        _AttachedDrones.Add(drone);
+        _FighterDrones.Add(drone);
+    }
+
+    private void AttachBuilderDrone(BuilderDrone drone)
+    {
+        _AttachedBuilderDrones.Add(drone);
+        PlaceDrone(drone, _AttachedBuilderDrones.Count - 1);
+    }
+    
+    private void AttachFighterDrone(FighterDrone drone)
+    {
+        _AttachedFighterDrones.Add(drone);
+        PlaceDrone(drone, _AttachedFighterDrones.Count - 1);
+    }
+
+    private void PlaceDrone(BasicDrone drone, int index)
+    {
+        Vector3 dronePos = transform.position + (transform.up * 3.5f) - (transform.forward * 2.5f);
+        dronePos += (transform.forward * ((index) % 5)) + (transform.up * (int)(index / 5));
+        drone.transform.position = dronePos;
     }
 }

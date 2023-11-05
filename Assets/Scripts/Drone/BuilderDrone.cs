@@ -16,7 +16,7 @@ public class BuilderDrone : BasicDrone
             return;
         }
         _TargetHealth = _TargetPos.GetComponent<WallHealth>();
-        _TargetPos.GetComponent<Wall>().AddDrone(this);
+        _TargetPos.GetComponent<Wall>().AddBuilderDrone(this);
     }
 
     // Update is called once per frame
