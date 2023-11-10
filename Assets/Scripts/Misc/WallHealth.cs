@@ -18,6 +18,7 @@ public class WallHealth : Health
 
     protected override void Die()
     {
+
         OnWallDestroy?.Invoke();
     }
 

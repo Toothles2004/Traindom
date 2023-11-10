@@ -76,7 +76,7 @@ MonoBehaviour:
     type: 3}
   _MovementAction: {fileID: -242983194445282382, guid: 6cd06c4717951c14c8e140bf32f8d80b,
     type: 3}
-  _AmountOfCrystals: 5
+  _AmountOfCrystals: 6
 --- !u!114 &-5687935256411957602
 MonoBehaviour:
   m_ObjectHideFlags: 0

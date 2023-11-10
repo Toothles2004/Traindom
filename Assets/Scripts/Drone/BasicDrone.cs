@@ -50,6 +50,8 @@ public class BasicDrone : MonoBehaviour
         else
         {
             _RigidBody.velocity = Vector3.zero;
+            _RigidBody.angularVelocity = Vector3.zero;
+            _RigidBody.constraints.Equals(RigidbodyConstraints.FreezeAll);
         }
     }
 

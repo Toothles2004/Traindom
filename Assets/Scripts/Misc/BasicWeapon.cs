@@ -15,7 +15,7 @@ public class BasicWeapon : MonoBehaviour
 
     private Transform _Enemy = null;
 
-    private float _Range = 40.0f;
+    private float _Range = 30.0f;
 
     private void Start()
     {

@@ -33,7 +33,10 @@ public class AttackBehavior : MonoBehaviour
             Health targetHealth = hitColliders[index].GetComponent<Health>();
             if (targetHealth != null)
             {
-                targetHealth.Damage(_Damage);
+                if(targetHealth.GetAlive())
+                {
+                    targetHealth.Damage(_Damage);
+                }
             }
         }
     }

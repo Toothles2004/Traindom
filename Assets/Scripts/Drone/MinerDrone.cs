@@ -9,6 +9,7 @@ public class MinerDrone : BasicDrone
     {
         _GameObjects = GameObject.FindGameObjectsWithTag("Crystal");
         GetClosestPosTarget();
+        _TargetPos.GetComponent<BasicCrystal>().AddMinerDrone(this);
     }
 
     // Update is called once per frame
