@@ -7,10 +7,10 @@ public class BasicInteractable : MonoBehaviour
     [SerializeField]
     private float _InteractCooldown = 1.0f;
     private float _InteractTimer = 0.0f;
-    protected bool _DoInteract = false;
     protected PlayerCharacter _Player = null;
 
     protected int _Cost = 3;
+    protected int _InteractCounter = 0;
 
     protected virtual void Start()
     {
@@ -29,11 +29,18 @@ public class BasicInteractable : MonoBehaviour
     {
         if(_InteractTimer < _InteractCooldown)
         {
-            _DoInteract = false;
             return;
         }
-
-        _DoInteract = true;
+        if (!_Player.ConsumeCrystal(_Cost))
+        {
+            return;
+        }
+        InteractEffect();
         _InteractTimer = 0.0f;
+    }
+
+    virtual protected void InteractEffect()
+    {
+
     }
 }

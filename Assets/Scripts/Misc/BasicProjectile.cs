@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class BasicProjectile : MonoBehaviour
 {
-    private float _Speed = 6.0f;
+    public float _Speed = 6.0f;
 
     [SerializeField]
     private float _LifeTime = 5.0f;
 
-    [SerializeField]
-    private int _Damage = 1;
+    public int _Damage = 2;
 
     private const string KILL_METHOD = "Kill";
 

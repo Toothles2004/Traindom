@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class InteractBehavior : MonoBehaviour
@@ -10,7 +12,13 @@ public class InteractBehavior : MonoBehaviour
     private GameObject[] _GameObjects;
     public void Awake()
     {
-        _GameObjects = GameObject.FindGameObjectsWithTag("Interactable");
+        var array1 = GameObject.FindGameObjectsWithTag("Interactable");
+        var array2 = GameObject.FindGameObjectsWithTag("Construct");
+        var array3 = GameObject.FindGameObjectsWithTag("Crystal");
+        var array4 = GameObject.FindGameObjectsWithTag("FighterDroneUpgrade");
+        var array5 = array1.Concat(array2).ToArray();
+        var array6 = array5.Concat(array3).ToArray();
+        _GameObjects = array6.Concat(array4).ToArray();
     }
 
     public void Interact()
@@ -32,9 +40,24 @@ public class InteractBehavior : MonoBehaviour
 
         //Debug.Log(closestInteractable);
         
-        if(closestInteractable <= _SqrInteractRange)
+         if(closestInteractable <= _SqrInteractRange)
         {
-            _GameObjects[closestIndex].GetComponent<BasicInteractable>().Interact();
+            if(_GameObjects[closestIndex].tag == "Interactable")
+            {
+                _GameObjects[closestIndex].GetComponent<BasicInteractable>().Interact();
+            }
+            if(_GameObjects[closestIndex].tag == "Construct")
+            {
+                _GameObjects[closestIndex].GetComponent<WallUpgrade>().Interact();
+            }
+            if (_GameObjects[closestIndex].tag == "Crystal")
+            {
+                _GameObjects[closestIndex].GetComponent<CrystalUpgrade>().Interact();
+            }
+            if (_GameObjects[closestIndex].tag == "FighterDroneUpgrade")
+            {
+                _GameObjects[closestIndex].GetComponent<FighterDroneUpgrade>().Interact();
+            }
         }
     }
 }

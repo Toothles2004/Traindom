@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _BulletTemplate: {fileID: 2822059365268543619, guid: b4be8cd6062b4764295eb8a74ff2c0d5,
     type: 3}
+  _FireRate: 1
   _FireSockets:
   - {fileID: 1711806221061709714}
 --- !u!1 &2398823949072556745

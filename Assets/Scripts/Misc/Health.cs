@@ -5,8 +5,7 @@ using UnityEngine.UIElements;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField]
-    protected int _MaxHealth = 15;
+    public int _MaxHealth = 15;
     protected int _CurrentHealth = 1;
     private bool _Alive = true;
 

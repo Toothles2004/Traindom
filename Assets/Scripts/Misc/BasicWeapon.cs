@@ -7,7 +7,7 @@ public class BasicWeapon : MonoBehaviour
     [SerializeField]
     private GameObject _BulletTemplate = null;
 
-    private float _FireRate = 1.0f;
+    static public float _FireRate = 1.0f;
 
     [SerializeField]
     private List<Transform> _FireSockets = new List<Transform>();
@@ -83,5 +83,14 @@ public class BasicWeapon : MonoBehaviour
 
         // Set the time so we respect the firerate
         _FireTimer += 1.0f / _FireRate;
+    }
+
+    public void SetFireRate(float amount)
+    {
+        _FireRate = amount;
+    }
+    public float GetFireRate()
+    {
+        return _FireRate;
     }
 }

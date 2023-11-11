@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    private float _Cooldown = 10.0f;
+    private float _Cooldown = 15.0f;
     private float _Timer = 0.0f;
+    private int _EnemyAmount = 0;
+    private int _CurrentWave = 0;
+    private float _SpawnDelay = 0.4f;
 
     [SerializeField]
     private GameObject _Template = null;
@@ -24,9 +27,13 @@ public class Spawner : MonoBehaviour
         }
         else
         {
+            _CurrentWave += 1;
             _Timer = 0.0f;
-            SpawnEnemy();
-            _Cooldown *= 0.9f;
+            _EnemyAmount = Random.Range(1, _CurrentWave);
+            for(int index = 0; index < _EnemyAmount; ++index)
+            {
+                Invoke("SpawnEnemy", index*_SpawnDelay);
+            }
         }
     }
 

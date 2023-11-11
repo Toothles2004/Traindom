@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 
 public class Wall : MonoBehaviour
 {
-    private WallHealth _Health = null;
+    public WallHealth _Health = null;
     public bool _start = false;
     private Vector3 OriginalPos = Vector3.zero;
 
@@ -34,6 +34,7 @@ public class Wall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        RemoveDrone();
         for (int index = 0; index < _BuilderDrones.Count; ++index)
         {
             if (_BuilderDrones[index].CheckTargetReached())
@@ -63,6 +64,7 @@ public class Wall : MonoBehaviour
         {
             PlaceFighterDrone(_AttachedFighterDrones[index], index);
         }
+        //Debug.Log("Wall destroyed");
     }
 
     private void BuildWall()
@@ -110,9 +112,20 @@ public class Wall : MonoBehaviour
 
     private void PlaceBuilderDrone(BuilderDrone drone, int index)
     {
-        Vector3 dronePos = transform.position - (transform.forward * 2.6f) - (transform.up * 0.75f);
+        Vector3 dronePos = transform.position - (Vector3.forward * 2.6f) - (transform.up * 0.75f);
         dronePos += (transform.up + new Vector3(0.0f, 0.5f * index, 0.0f));
         drone.transform.position = dronePos;
         drone.transform.rotation = new Quaternion( -45.0f, 0.0f, 0.0f, 45.0f);
+    }
+
+    private void RemoveDrone()
+    {
+        for (int index = 0; index < _AttachedFighterDrones.Count; index++)
+        {
+            if(_AttachedFighterDrones[index] == null)
+            {
+                _AttachedFighterDrones.RemoveAt(index);
+            }
+        }
     }
 }

@@ -11,8 +11,7 @@ public class BasicCrystal : MonoBehaviour
     private int _AmountOfSlots = 3;
     private int _CurrentSlotsUsed = 0;
 
-    [SerializeField]
-    private float _MineTimer = 5.0f;
+    public float _MineTimer = 3.0f;
 
     private PlayerCharacter _Player = null;
 
@@ -52,8 +51,8 @@ public class BasicCrystal : MonoBehaviour
 
     private void PlaceMinerDrone(MinerDrone drone, int index)
     {
-        Vector3 dronePos = transform.position - (transform.up * 2.0f) - (transform.forward * 0.5f);
-        dronePos += (transform.up + new Vector3(0.0f, index, 0.0f));
+        Vector3 dronePos = transform.position -(Vector3.up) - (Vector3.forward * 0.5f);
+        dronePos += (Vector3.up + new Vector3(0.0f, index, 0.0f));
         drone.transform.position = dronePos;
         drone.transform.rotation = new Quaternion(-45.0f, 0.0f, 0.0f, 45.0f);
     }

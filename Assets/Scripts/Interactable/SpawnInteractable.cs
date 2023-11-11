@@ -10,14 +10,10 @@ public class SpawnInteractable : BasicInteractable
     [SerializeField]
     private GameObject _SpawnPoint = null;
 
-    public override void Interact()
+    protected override void InteractEffect()
     {
-        base.Interact();
-        if((_DoInteract == false) || (!_Player.ConsumeCrystal(_Cost)))
-        {
-            return;
-        }
-
         Instantiate(_SpawnObjectTemplate, _SpawnPoint.transform.position, _SpawnPoint.transform.rotation);
+        _InteractCounter += 1;
+        _Cost += 2 * _InteractCounter;
     }
 }
