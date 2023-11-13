@@ -10,7 +10,6 @@ public class EndLevelInteractable : BasicInteractable
     protected override void Start()
     {
         base.Start();
-        _Cost = 100;
         _UpgradeCost.text = _Cost.ToString();
     }
 
@@ -18,7 +17,7 @@ public class EndLevelInteractable : BasicInteractable
     {
         if(_Player.ConsumeCrystal(_Cost))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
         }
     }
 }

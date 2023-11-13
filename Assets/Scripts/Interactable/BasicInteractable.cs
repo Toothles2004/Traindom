@@ -10,6 +10,7 @@ public class BasicInteractable : MonoBehaviour
     protected float _InteractTimer = 0.0f;
     protected PlayerCharacter _Player = null;
 
+    [SerializeField]
     protected int _Cost = 3;
     protected int _InteractCounter = 0;
 

@@ -14,7 +14,6 @@ public class BasicUpgrade : BasicInteractable
     protected override void Start()
     {
         base.Start();
-        _Cost = 15;
         _UpgradeAmount = GetComponentInChildren<TextMeshProUGUI>();
         _UpgradeAmount.text = _Cost.ToString();
         _Particle = GetComponentInChildren<ParticleSystem>();

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    [SerializeField]
     private float _Cooldown = 10.0f;
     private float _Timer = 0.0f;
     private int _EnemyAmount = 0;

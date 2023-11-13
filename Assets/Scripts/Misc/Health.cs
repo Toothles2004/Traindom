@@ -65,6 +65,7 @@ public class Health : MonoBehaviour
         {
             _CurrentHealth = _MaxHealth;
         }
+        _HealthBarSprite.fillAmount = _CurrentHealth / _MaxHealth;
     }
 
     public float GetHealth()

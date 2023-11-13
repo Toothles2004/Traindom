@@ -11,7 +11,8 @@ public class BasicCrystal : MonoBehaviour
     private int _AmountOfSlots = 3;
     private int _CurrentSlotsUsed = 0;
 
-    public float _MineTimer = 3.0f;
+    public float _MineCooldown = 3.0f;
+    private float _MineTimer = 0.0f;
 
     private PlayerCharacter _Player = null;
 
@@ -19,10 +20,6 @@ public class BasicCrystal : MonoBehaviour
     private void Start()
     {
         _Player = FindAnyObjectByType<PlayerCharacter>();
-        if( _Player != null )
-        {
-            InvokeRepeating("MineCrystal", _MineTimer, _MineTimer);
-        }
     }
 
     // Update is called once per frame
@@ -35,6 +32,15 @@ public class BasicCrystal : MonoBehaviour
                 AttachMinerDrone(_MinerDrones[index]);
                 _MinerDrones.RemoveAt(index);
             }
+        }
+        if (_MineTimer < _MineCooldown)
+        {
+            _MineTimer += Time.deltaTime;
+        }
+        else if(_MineTimer >= _MineCooldown)
+        {
+            MineCrystal();
+            _MineTimer = 0.0f;
         }
     }
 
