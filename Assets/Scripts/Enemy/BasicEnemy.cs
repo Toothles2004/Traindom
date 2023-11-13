@@ -20,7 +20,11 @@ public class BasicEnemy : BasicCharacter
 
     private void Update()
     {
-        if(_AttackTimer < _AttackCooldown)
+        if (_AttackBehavior == null)
+        {
+            return;
+        }
+        if (_AttackTimer < _AttackCooldown)
         {
             _AttackTimer += Time.deltaTime;
         }
@@ -29,6 +33,8 @@ public class BasicEnemy : BasicCharacter
             _AttackBehavior.Attack();
             _AttackTimer = 0.0f;
         }
+
+        // If enemy is attacking a target don't move
         if(!_AttackBehavior._Attacking)
         {
             _MovementBehavior.DesiredMovementDirection = _Target.transform.position - transform.position;

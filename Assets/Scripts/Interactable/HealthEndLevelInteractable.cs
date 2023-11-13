@@ -10,6 +10,8 @@ public class HealthEndLevelInteractable : Health
         _MaxHealth = 100;
         _CurrentHealth = _MaxHealth;
     }
+
+    // If the enemies destroy the cargo, reload the level
     protected override void Die()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);

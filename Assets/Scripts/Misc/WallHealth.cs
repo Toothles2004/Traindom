@@ -24,6 +24,7 @@ public class WallHealth : Health
         OnWallDestroy?.Invoke();
     }
 
+    // Update health bar and when wall reached max health call buildWall
     public void Heal(int health)
     {
         if(_CurrentHealth > _MaxHealth)

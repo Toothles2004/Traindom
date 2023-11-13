@@ -29,7 +29,10 @@ public class MovementBehavior : MonoBehaviour
 
     private void HandleMovement()
     {
-        if (_RigidBody == null) return;
+        if (_RigidBody == null)
+        {
+            return;
+        }
 
         Vector3 movement = _DesiredMovementDirection.normalized;
         movement *= _MovementSpeed;

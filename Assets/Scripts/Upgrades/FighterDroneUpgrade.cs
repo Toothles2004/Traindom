@@ -16,13 +16,19 @@ public class FighterDroneUpgrade : BasicUpgrade
     {
         base.InteractEffect();
         _Weapon = FindObjectOfType<BasicWeapon>();
+
+        if( _Weapon == null )
+        {
+            return;
+        }
+
         _NewFireRate = 1.0f * Mathf.Pow(0.6f, _UpgradeLevel);
         UpgradeShootingSpeed();
     }
     protected void UpgradeShootingSpeed()
     {
         _Weapon.SetFireRate(_NewFireRate);
-        Debug.Log("new firerate");
-        Debug.Log(_Weapon.GetFireRate());
+        //Debug.Log("new firerate");
+        //Debug.Log(_Weapon.GetFireRate());
     }
 }

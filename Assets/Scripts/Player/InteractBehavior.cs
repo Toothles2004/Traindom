@@ -21,6 +21,7 @@ public class InteractBehavior : MonoBehaviour
         _GameObjects = array6.Concat(array4).ToArray();
     }
 
+    // Get closest interactable and call the appropriate Interact function
     public void Interact()
     {
         float closestInteractable = float.PositiveInfinity;

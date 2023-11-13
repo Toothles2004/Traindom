@@ -20,7 +20,11 @@ public class BasicInteractable : MonoBehaviour
     {
         _Player = FindAnyObjectByType<PlayerCharacter>();
         _UpgradeCost = GetComponentInChildren<TextMeshProUGUI>();
-        _UpgradeCost.text = _Cost.ToString();
+
+        if(_UpgradeCost != null )
+        {
+            _UpgradeCost.text = _Cost.ToString();
+        }
     }
     protected virtual void Update()
     {
@@ -37,7 +41,9 @@ public class BasicInteractable : MonoBehaviour
         {
             return;
         }
-        if (!_Player.ConsumeCrystal(_Cost))
+
+        // If the player has enough crystals to interact call interactEffect and reset the timer
+        if (!_Player.ConsumeCrystal(_Cost) || (_Player == null))
         {
             return;
         }
@@ -47,6 +53,10 @@ public class BasicInteractable : MonoBehaviour
 
     virtual protected void InteractEffect()
     {
+        if (_UpgradeCost == null)
+        {
+            return;
+        }
         _UpgradeCost.text = _Cost.ToString();
     }
 }

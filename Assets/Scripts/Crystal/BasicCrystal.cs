@@ -25,6 +25,7 @@ public class BasicCrystal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Add and place drone on the crystal
         for (int index = 0; index < _MinerDrones.Count; ++index)
         {
             if (_MinerDrones[index].CheckTargetReached())
@@ -68,6 +69,7 @@ public class BasicCrystal : MonoBehaviour
         return _SlotsAvailable;
     }
 
+    // Update available slots on crystal for drone to attach to
     public void UpdateSlotsUsed()
     {
         _CurrentSlotsUsed += 1;
@@ -80,6 +82,10 @@ public class BasicCrystal : MonoBehaviour
     private void MineCrystal()
     {
         int crystalsMined = _CurrentSlotsUsed;
+        if(_Player == null)
+        {
+            return;
+        }
         _Player.AddCrystals(crystalsMined);
     }
 }

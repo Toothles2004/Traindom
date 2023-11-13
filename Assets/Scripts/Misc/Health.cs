@@ -26,11 +26,12 @@ public class Health : MonoBehaviour
         
     }
 
+    // Apply damage to the object and update the health bar
     public void Damage(int amount)
     {
         _CurrentHealth -= amount;
         _HealthBarSprite.fillAmount = _CurrentHealth / _MaxHealth;
-        Debug.Log(_HealthBarSprite.fillAmount);
+        //Debug.Log(_HealthBarSprite.fillAmount);
         if ( _CurrentHealth <= 0 )
         {
             _Alive = false;
@@ -58,6 +59,7 @@ public class Health : MonoBehaviour
         _MaxHealth += amount;
     }
 
+    // Heal the object and update the health bar
     public void Heal(float amount)
     {
         _CurrentHealth += amount;

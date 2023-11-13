@@ -22,6 +22,7 @@ public class BasicWeapon : MonoBehaviour
         InvokeRepeating("UpdateTarget", 0.0f, 0.2f);
     }
 
+    // Find the closest enemy
     void UpdateTarget()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -64,7 +65,7 @@ public class BasicWeapon : MonoBehaviour
             FireProjectile();
         }
 
-        //// Target lock on
+        // Target lock on
         transform.LookAt(_Enemy.position);
     }
 

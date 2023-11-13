@@ -15,6 +15,7 @@ public class BasicProjectile : MonoBehaviour
 
     private void Awake()
     {
+        // If the bullet has existed for a certain amount of time it will be deleted
         Invoke(KILL_METHOD, _LifeTime);
     }
 
@@ -28,6 +29,7 @@ public class BasicProjectile : MonoBehaviour
         Destroy(gameObject);
     }
 
+    // If the bullet collides with something that doesn't have a health component it gets destroyed
     void OnCollisionEnter(Collision collision)
     {
         Health targetHealth = collision.rigidbody.GetComponent<Health>();

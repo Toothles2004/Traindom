@@ -1,15 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
-//using System;
-
-//[Serializable]
-//public class TestData :
-//    {
-
-//}
 public class BasicDrone : MonoBehaviour
 {
     [SerializeField]
@@ -32,11 +26,11 @@ public class BasicDrone : MonoBehaviour
     private void Awake()
     {
         _RigidBody = GetComponent<Rigidbody>();
-        //DontDestroyOnLoad(this);
     }
 
     protected virtual void Update()
     {
+        // Moves the drone to target and stops it when reached
         if (_InteractTimer < _InteractCooldown)
         {
             _InteractTimer += Time.deltaTime;
@@ -49,12 +43,17 @@ public class BasicDrone : MonoBehaviour
         }
         else
         {
+            if(_RigidBody == null)
+            {
+                return;
+            }
             _RigidBody.velocity = Vector3.zero;
             _RigidBody.angularVelocity = Vector3.zero;
             _RigidBody.constraints.Equals(RigidbodyConstraints.FreezeAll);
         }
     }
 
+    // Take the distance to target and check whether it's left or right, then move in direction of target
     public virtual void MoveToTarget()
     {
         if(_TargetPos != null )
@@ -63,25 +62,18 @@ public class BasicDrone : MonoBehaviour
 
             float speed = 0;
             _Distance = _TargetPos.transform.position.x - _RigidBody.position.x;
-
-            if(_Distance < 0)
+            speed = _MovementSpeed;
+            if (_Distance < 0)
             {
-                speed = _MovementSpeed * (-1);
-            }
-            else
-            {
-                speed = _MovementSpeed;
+                speed *= -1;
             }
 
             Vector3 movement = new Vector3(speed, 0.0f, 0.0f);
             _RigidBody.velocity = movement;
         }
     }
-    public virtual void ChangeCooldown()
-    {
 
-    }
-
+    // Check which target is positioned closest
     public virtual void GetClosestPosTarget()
     {
         float closestInteractable = float.PositiveInfinity;
@@ -89,6 +81,10 @@ public class BasicDrone : MonoBehaviour
 
         for (int index = 0; index < _GameObjects.Length; ++index)
         {
+            if (_RigidBody == null)
+            {
+                return;
+            }
             float distance = (_RigidBody.transform.position - _GameObjects[index].transform.position).sqrMagnitude;
             if (distance < closestInteractable)
             {

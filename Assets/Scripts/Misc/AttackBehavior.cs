@@ -26,12 +26,11 @@ public class AttackBehavior : MonoBehaviour
     public void Attack()
     {
         _Attacking = false;
-        //Using the OverlapBox to detect if there are any other colliders within this box area.
-        //Using the GameObject's centre, half the size (as a radius) and rotation. This creates an invisible box around the GameObject.
+        // Use the objects hit collidor to check for overlap
+        // If the target has a health component and it is alive then damage it and set attacking to true
         Collider[] hitColliders = Physics.OverlapBox(gameObject.transform.position, transform.localScale * 1.5f, Quaternion.identity, _LayerMask);
         for (int index = 0; index < hitColliders.Length; ++index)
         {
-            //Output all of the collider names
             //Debug.Log("Hit : " + hitColliders[index].name + index);
             Health targetHealth = hitColliders[index].GetComponent<Health>();
             if (targetHealth != null)

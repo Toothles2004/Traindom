@@ -10,6 +10,7 @@ public class SpawnInteractable : BasicInteractable
     [SerializeField]
     private GameObject _SpawnPoint = null;
 
+    // Spawn the connected drone and increase the price for the next drone
     protected override void InteractEffect()
     {
         Instantiate(_SpawnObjectTemplate, _SpawnPoint.transform.position, _SpawnPoint.transform.rotation);

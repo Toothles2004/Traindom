@@ -14,6 +14,11 @@ public class WallUpgrade : BasicUpgrade
     }
     protected override void InteractEffect()
     {
+        if(_Wall == null)
+        {
+            return;
+        }
+
         base.InteractEffect();
         UpgradeMaxHealth();
     }

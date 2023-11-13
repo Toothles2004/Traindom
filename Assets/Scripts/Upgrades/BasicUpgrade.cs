@@ -15,14 +15,24 @@ public class BasicUpgrade : BasicInteractable
     {
         base.Start();
         _UpgradeAmount = GetComponentInChildren<TextMeshProUGUI>();
-        _UpgradeAmount.text = _Cost.ToString();
+        if( _UpgradeAmount != null )
+        {
+            _UpgradeAmount.text = _Cost.ToString();
+        }
         _Particle = GetComponentInChildren<ParticleSystem>();
     }
 
+    // Update the current cost and play a particle effect
     protected override void InteractEffect()
     {
         _UpgradeLevel += 1;
         _Cost += 5*_UpgradeLevel;
+
+        if( (_UpgradeAmount == null) || (_Particle == null))
+        {
+            return;
+        }
+
         _UpgradeAmount.text = _Cost.ToString();
         _Particle.Play();
     }

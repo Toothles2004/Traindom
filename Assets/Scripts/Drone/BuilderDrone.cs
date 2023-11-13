@@ -22,6 +22,7 @@ public class BuilderDrone : BasicDrone
     // Update is called once per frame
     protected override void Update()
     {
+        //Cooldown for healing walls
         base.Update();
         if(_TargetReached)
         {

@@ -20,8 +20,14 @@ public class MinerDrone : BasicDrone
 
     public override void GetClosestPosTarget()
     {
+        // Check which crystal is located the closest
         float closestInteractable = float.PositiveInfinity;
         int closestIndex = -1;
+
+        if(_GameObjects == null)
+        {
+            return;
+        }
 
         for (int index = 0; index < _GameObjects.Length; ++index)
         {

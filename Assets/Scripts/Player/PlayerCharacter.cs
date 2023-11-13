@@ -25,23 +25,32 @@ public class PlayerCharacter : BasicCharacter
         _InteractBehavior = GetComponent<InteractBehavior>();
         base.Awake();
 
-        if (_InputAsset == null) return;
+        if (_InputAsset == null)
+        {
+            return;
+        }
 
-        //example of searching for the bindings in code
+        // Searching for the bindings in code
         _InteractAction = _InputAsset.FindActionMap("Gameplay").FindAction("Interact");
         OnCrystalChange?.Invoke(_AmountOfCrystals);
     }
 
     private void OnEnable()
     {
-        if(_InputAsset == null) return;
+        if (_InputAsset == null)
+        {
+            return;
+        }
 
         _InputAsset.Enable();
     }
 
     private void OnDisable()
     {
-        if (_InputAsset == null) return;
+        if (_InputAsset == null)
+        {
+            return;
+        }
 
         _InputAsset.Disable();
     }
@@ -54,11 +63,11 @@ public class PlayerCharacter : BasicCharacter
 
     void HandleMovementInput()
     {
-        if (_MovementBehavior == null ||
-           _MovementAction == null)
+        if (_MovementBehavior == null || _MovementAction == null)
+        {
             return;
+        }
 
-        //movement
         float movementInput = _MovementAction.action.ReadValue<float>();
 
         Vector3 movement = movementInput * Vector3.right;
@@ -68,16 +77,20 @@ public class PlayerCharacter : BasicCharacter
 
     private void HandleInteractInput()
     {
-        if (_InteractBehavior == null ||
-           _InteractAction == null)
+        if (_InteractBehavior == null || _InteractAction == null)
+        {
             return;
+        }
 
         if (_InteractAction.IsPressed())
+        {
             _InteractBehavior.Interact();
+        }
     }
 
     public int Crystals { get { return _AmountOfCrystals; } }
 
+    // If the amount of crystals changes call to update crystals
     public void AddCrystals(int amount)
     {
         _AmountOfCrystals += amount;

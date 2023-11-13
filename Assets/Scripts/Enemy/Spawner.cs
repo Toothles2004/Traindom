@@ -22,6 +22,7 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Spawns a random amount of enemies depending on the wave
         if(_Timer < _Cooldown)
         {
             _Timer += Time.deltaTime;

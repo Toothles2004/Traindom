@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b30af81e1c9f6a40a38ca243bfa49ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _MineTimer: 5
+  _MineCooldown: 3
 --- !u!114 &-1009628734454160977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,6 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _InteractCooldown: 1
+  _Cost: 15
 --- !u!1 &5735719465922004911
 GameObject:
   m_ObjectHideFlags: 0

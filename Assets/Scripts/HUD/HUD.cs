@@ -14,7 +14,7 @@ public class HUD : MonoBehaviour
     void Start()
     {
         _AttachedDocument = GetComponent<UIDocument>();
-        if( _AttachedDocument)
+        if( _AttachedDocument != null)
         {
             _Root = _AttachedDocument.rootVisualElement;
         }

@@ -17,14 +17,18 @@ public class FighterDrone : BasicDrone
         _TargetPos.GetComponent<Wall>().AddFighterDrone(this);
         _DroneHealth = GetComponent<Health>();
         _InteractCooldown = 0.5f;
-        _StoredHealth = _DroneHealth.GetHealth();
+        if(_DroneHealth != null)
+        {
+            _StoredHealth = _DroneHealth.GetHealth();
+        }
     }
 
     // Update is called once per frame
     protected override void Update()
     {
+        // Heal Drone over time if it has not been attacked
         base.Update();
-        if ((_InteractTimer >= _InteractCooldown))
+        if ((_InteractTimer >= _InteractCooldown) && (_DroneHealth != null))
         {
             if(_StoredHealth != _DroneHealth.GetHealth())
             {

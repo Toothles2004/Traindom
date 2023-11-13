@@ -15,6 +15,7 @@ public class EndLevelInteractable : BasicInteractable
 
     override public void Interact()
     {
+        // If the player has enough crystals load the next scene
         if(_Player.ConsumeCrystal(_Cost))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);

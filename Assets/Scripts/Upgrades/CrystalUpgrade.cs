@@ -18,7 +18,7 @@ public class CrystalUpgrade : BasicUpgrade
     protected void UpgradeMiningSpeed()
     {
         _Crystal._MineCooldown *= 0.6f;
-        Debug.Log(_Crystal._MineCooldown);
+        //Debug.Log(_Crystal._MineCooldown);
         //Debug.Log("Current mining speed");
         //Debug.Log(_Crystal._MineTimer);
     }

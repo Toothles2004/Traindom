@@ -216,6 +216,11 @@ PrefabInstance:
       propertyPath: _MineTimer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: -1009628734454160977, guid: 02b0f31ebe9cdd14892c53270f80cd1b,
+        type: 3}
+      propertyPath: _Cost
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 2268760603551747652, guid: 02b0f31ebe9cdd14892c53270f80cd1b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1410,6 +1415,11 @@ PrefabInstance:
       propertyPath: _MaxHealth
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 6461703521716664276, guid: 7b88c3c3aad31474f9ee0dc6355c630c,
+        type: 3}
+      propertyPath: _Cost
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 8441038637165744680, guid: 7b88c3c3aad31474f9ee0dc6355c630c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1482,6 +1492,11 @@ PrefabInstance:
         type: 3}
       propertyPath: _MineTimer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -1009628734454160977, guid: 02b0f31ebe9cdd14892c53270f80cd1b,
+        type: 3}
+      propertyPath: _Cost
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2268760603551747652, guid: 02b0f31ebe9cdd14892c53270f80cd1b,
         type: 3}
@@ -1872,6 +1887,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FighterDroneUpgrade
+      objectReference: {fileID: 0}
+    - target: {fileID: 2167288346259244960, guid: 92cfde5bd379eb74ea118693b7781cdd,
+        type: 3}
+      propertyPath: _Cost
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
