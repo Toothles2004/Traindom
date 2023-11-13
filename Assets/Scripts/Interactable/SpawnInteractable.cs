@@ -15,5 +15,6 @@ public class SpawnInteractable : BasicInteractable
         Instantiate(_SpawnObjectTemplate, _SpawnPoint.transform.position, _SpawnPoint.transform.rotation);
         _InteractCounter += 1;
         _Cost += 2 * _InteractCounter;
+        base.InteractEffect();
     }
 }

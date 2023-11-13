@@ -229,6 +229,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3670533393803350147, guid: a5721354362e3ad4fbc981d280ca25fc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.512
+      objectReference: {fileID: 0}
+    - target: {fileID: 3670533393803350147, guid: a5721354362e3ad4fbc981d280ca25fc,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3670533393803350147, guid: a5721354362e3ad4fbc981d280ca25fc,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3670533393803350147, guid: a5721354362e3ad4fbc981d280ca25fc,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3670533393803350147, guid: a5721354362e3ad4fbc981d280ca25fc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5321396990668084494, guid: a5721354362e3ad4fbc981d280ca25fc,
         type: 3}
       propertyPath: m_Layer
@@ -300,7 +325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _HealthBarSprite: {fileID: 1204927718314285200}
-  _MaxHealth: 15
+  _MaxHealth: 100
 --- !u!65 &6454622647628672787
 BoxCollider:
   m_ObjectHideFlags: 0

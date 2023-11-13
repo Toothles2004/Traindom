@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class BasicInteractable : MonoBehaviour
@@ -12,9 +13,13 @@ public class BasicInteractable : MonoBehaviour
     protected int _Cost = 3;
     protected int _InteractCounter = 0;
 
+    private TextMeshProUGUI _UpgradeCost = null;
+
     protected virtual void Start()
     {
         _Player = FindAnyObjectByType<PlayerCharacter>();
+        _UpgradeCost = GetComponentInChildren<TextMeshProUGUI>();
+        _UpgradeCost.text = _Cost.ToString();
     }
     protected virtual void Update()
     {
@@ -41,6 +46,6 @@ public class BasicInteractable : MonoBehaviour
 
     virtual protected void InteractEffect()
     {
-
+        _UpgradeCost.text = _Cost.ToString();
     }
 }
