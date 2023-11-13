@@ -13,6 +13,7 @@ public class WallHealth : Health
 
     protected override void Start()
     {
+        _MaxHealth = 30;
         _CurrentHealth = 0;
         _HealthBarSprite.fillAmount = _CurrentHealth / _MaxHealth;
     }

@@ -8,7 +8,9 @@ public class AttackBehavior : MonoBehaviour
 
     protected const float _AttackRange = 3.0f;
 
-    protected int _Damage = 1;
+    protected int _Damage = 3;
+    
+    public bool _Attacking = false;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,7 @@ public class AttackBehavior : MonoBehaviour
 
     public void Attack()
     {
+        _Attacking = false;
         //Using the OverlapBox to detect if there are any other colliders within this box area.
         //Using the GameObject's centre, half the size (as a radius) and rotation. This creates an invisible box around the GameObject.
         Collider[] hitColliders = Physics.OverlapBox(gameObject.transform.position, transform.localScale * 1.5f, Quaternion.identity, _LayerMask);
@@ -36,6 +39,7 @@ public class AttackBehavior : MonoBehaviour
                 if(targetHealth.GetAlive())
                 {
                     targetHealth.Damage(_Damage);
+                    _Attacking = true;
                 }
             }
         }

@@ -9,7 +9,7 @@ public class BasicProjectile : MonoBehaviour
     [SerializeField]
     private float _LifeTime = 5.0f;
 
-    public int _Damage = 2;
+    public int _Damage = 3;
 
     private const string KILL_METHOD = "Kill";
 

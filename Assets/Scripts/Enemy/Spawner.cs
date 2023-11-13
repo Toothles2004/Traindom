@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    private float _Cooldown = 15.0f;
+    private float _Cooldown = 10.0f;
     private float _Timer = 0.0f;
     private int _EnemyAmount = 0;
     private int _CurrentWave = 0;

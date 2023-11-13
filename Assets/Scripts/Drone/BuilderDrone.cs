@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BuilderDrone : BasicDrone
 {
-    private int _HealingAmount = 2;
+    private int _HealingAmount = 4;
     private WallHealth _TargetHealth = null;
     // Start is called before the first frame update
     void Start()

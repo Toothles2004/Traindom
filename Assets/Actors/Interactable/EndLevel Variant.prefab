@@ -325,7 +325,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _HealthBarSprite: {fileID: 1204927718314285200}
-  _MaxHealth: 100
 --- !u!65 &6454622647628672787
 BoxCollider:
   m_ObjectHideFlags: 0

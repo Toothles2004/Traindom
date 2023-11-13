@@ -9,7 +9,8 @@ public class Health : MonoBehaviour
     [SerializeField]
     protected Image _HealthBarSprite;
 
-    public float _MaxHealth = 15;
+    [SerializeField]
+    protected float _MaxHealth = 15;
     protected float _CurrentHealth = 1;
     private bool _Alive = true;
 
@@ -50,5 +51,19 @@ public class Health : MonoBehaviour
     public virtual void SetAlive(bool alive)
     {
         _Alive = alive;
+    }
+
+    public void IncreaseMaxHealth(float amount)
+    {
+        _MaxHealth += amount;
+    }
+
+    public void Heal(float amount)
+    {
+        _CurrentHealth += amount;
+        if( _CurrentHealth > _MaxHealth)
+        {
+            _CurrentHealth = _MaxHealth;
+        }
     }
 }

@@ -29,7 +29,13 @@ public class BasicEnemy : BasicCharacter
             _AttackBehavior.Attack();
             _AttackTimer = 0.0f;
         }
-
-        _MovementBehavior.DesiredMovementDirection = _Target.transform.position - transform.position;
+        if(!_AttackBehavior._Attacking)
+        {
+            _MovementBehavior.DesiredMovementDirection = _Target.transform.position - transform.position;
+        }
+        else
+        {
+            _MovementBehavior.DesiredMovementDirection = Vector3.zero;
+        }
     }
 }
