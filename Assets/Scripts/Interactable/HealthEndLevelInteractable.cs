@@ -8,6 +8,7 @@ public class HealthEndLevelInteractable : Health
     protected override void Start()
     {
         _MaxHealth = 100;
+        _CurrentHealth = _MaxHealth;
     }
     protected override void Die()
     {

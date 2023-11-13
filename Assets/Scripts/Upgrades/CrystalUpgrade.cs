@@ -17,7 +17,7 @@ public class CrystalUpgrade : BasicUpgrade
     }
     protected void UpgradeMiningSpeed()
     {
-        _Crystal._MineTimer *= 0.8f;
+        _Crystal._MineTimer *= 0.6f;
         //Debug.Log("Current mining speed");
         //Debug.Log(_Crystal._MineTimer);
     }

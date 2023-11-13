@@ -16,7 +16,7 @@ public class FighterDroneUpgrade : BasicUpgrade
     {
         base.InteractEffect();
         _Weapon = FindObjectOfType<BasicWeapon>();
-        _NewFireRate = 1.0f * Mathf.Pow(0.8f, _UpgradeLevel);
+        _NewFireRate = 1.0f * Mathf.Pow(0.6f, _UpgradeLevel);
         UpgradeShootingSpeed();
     }
     protected void UpgradeShootingSpeed()

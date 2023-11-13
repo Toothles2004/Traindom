@@ -6,7 +6,7 @@ public class FighterDrone : BasicDrone
 {
     private ShootBehavior _ShootBehavior;
     private Health _DroneHealth = null;
-    private bool _BeingAttacked = false;
+    private float _StoredHealth = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -17,20 +17,25 @@ public class FighterDrone : BasicDrone
         _TargetPos.GetComponent<Wall>().AddFighterDrone(this);
         _DroneHealth = GetComponent<Health>();
         _InteractCooldown = 0.5f;
+        _StoredHealth = _DroneHealth.GetHealth();
     }
 
     // Update is called once per frame
     protected override void Update()
     {
         base.Update();
-        if (_InteractTimer < _InteractCooldown)
+        if ((_InteractTimer >= _InteractCooldown))
         {
-            _InteractTimer += Time.deltaTime;
-        }
-        if ((_InteractTimer >= _InteractCooldown) && !_BeingAttacked)
-        {
-            _DroneHealth.Heal(2);
-            _InteractTimer = 0;
+            if(_StoredHealth != _DroneHealth.GetHealth())
+            {
+                _InteractTimer = -1;
+                _StoredHealth = _DroneHealth.GetHealth();
+            }
+            else
+            {
+                _DroneHealth.Heal(2);
+                _InteractTimer = 0;
+            }
         }
     }
 }

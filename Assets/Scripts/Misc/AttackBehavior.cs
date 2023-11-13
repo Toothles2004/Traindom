@@ -8,7 +8,7 @@ public class AttackBehavior : MonoBehaviour
 
     protected const float _AttackRange = 3.0f;
 
-    protected int _Damage = 3;
+    protected int _Damage = 2;
     
     public bool _Attacking = false;
 

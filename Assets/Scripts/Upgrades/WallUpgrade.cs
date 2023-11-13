@@ -19,7 +19,7 @@ public class WallUpgrade : BasicUpgrade
     }
     protected void UpgradeMaxHealth()
     {
-        _Wall._Health.IncreaseMaxHealth(5);
+        _Wall._Health.IncreaseMaxHealth(10);
         //Debug.Log("Current health");
         //Debug.Log(_Wall._Health._MaxHealth);
         //Debug.Log("Current cost");

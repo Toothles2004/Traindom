@@ -11,6 +11,7 @@ public class EndLevelInteractable : BasicInteractable
     {
         base.Start();
         _Cost = 100;
+        _UpgradeCost.text = _Cost.ToString();
     }
 
     override public void Interact()

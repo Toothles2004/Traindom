@@ -229,6 +229,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2843639142383980403, guid: a5721354362e3ad4fbc981d280ca25fc,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 517
+      objectReference: {fileID: 0}
     - target: {fileID: 3670533393803350147, guid: a5721354362e3ad4fbc981d280ca25fc,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -247,7 +252,7 @@ PrefabInstance:
     - target: {fileID: 3670533393803350147, guid: a5721354362e3ad4fbc981d280ca25fc,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.1
+      value: -0.246
       objectReference: {fileID: 0}
     - target: {fileID: 3670533393803350147, guid: a5721354362e3ad4fbc981d280ca25fc,
         type: 3}
@@ -258,6 +263,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7937371038248398885, guid: a5721354362e3ad4fbc981d280ca25fc,
+        type: 3}
+      propertyPath: m_text
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7937371038248398885, guid: a5721354362e3ad4fbc981d280ca25fc,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 7937371038248398885, guid: a5721354362e3ad4fbc981d280ca25fc,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 80
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2433422788969526617, guid: a5721354362e3ad4fbc981d280ca25fc, type: 3}
@@ -325,6 +345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _HealthBarSprite: {fileID: 1204927718314285200}
+  _MaxHealth: 100
 --- !u!65 &6454622647628672787
 BoxCollider:
   m_ObjectHideFlags: 0
