@@ -14,6 +14,7 @@ public class WallHealth : Health
     protected override void Start()
     {
         _CurrentHealth = 0;
+        _HealthBarSprite.fillAmount = _CurrentHealth / _MaxHealth;
     }
 
     protected override void Die()
@@ -33,6 +34,7 @@ public class WallHealth : Health
         if (_CurrentHealth >= _MaxHealth)
         {
             _CurrentHealth = _MaxHealth;
+            _HealthBarSprite.fillAmount = _CurrentHealth / _MaxHealth;
             OnWallBuild?.Invoke();
         }
     }

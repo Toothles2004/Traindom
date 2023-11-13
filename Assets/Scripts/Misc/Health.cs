@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.Animations;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    public int _MaxHealth = 15;
-    protected int _CurrentHealth = 1;
+    [SerializeField]
+    protected Image _HealthBarSprite;
+
+    public float _MaxHealth = 15;
+    protected float _CurrentHealth = 1;
     private bool _Alive = true;
 
     // Start is called before the first frame update
@@ -24,7 +28,9 @@ public class Health : MonoBehaviour
     public void Damage(int amount)
     {
         _CurrentHealth -= amount;
-        if( _CurrentHealth <= 0 )
+        _HealthBarSprite.fillAmount = _CurrentHealth / _MaxHealth;
+        Debug.Log(_HealthBarSprite.fillAmount);
+        if ( _CurrentHealth <= 0 )
         {
             _Alive = false;
             _CurrentHealth = 0;
